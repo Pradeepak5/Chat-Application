@@ -1,6 +1,6 @@
 const io = require("socket.io")(8800, {
     cors: {
-      origin: "https://pradeepak5-instachat.onrender.com",
+      origin: "https://pradeepak5-instachat.netlify.app",
     },
   });
   
