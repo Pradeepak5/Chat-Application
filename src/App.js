@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import Login from './Login';
+import Register from './Register';
+import Chat from './Chat';
+const URL = 'http://localhost:5000';
 
 function App() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} URL={URL} />}/>
+        <Route path='/register' element={<Register name={name} setName={setName} email={email} setEmail={setEmail} password={password} setPassword={setPassword} URL={URL}/>} />
+        <Route path='/chat' element={<Chat name={name} email={email} URL={URL} /> }/>
+      </Routes>
+      </BrowserRouter>
   );
 }
 
