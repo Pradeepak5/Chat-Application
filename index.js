@@ -1,4 +1,6 @@
-const io = require("socket.io")(8800, {
+const port = process.env.PORT || 8800;
+
+const io = require("socket.io")(port, {
     cors: {
       origin: "https://pradeepak5-instachat.netlify.app",
     },
